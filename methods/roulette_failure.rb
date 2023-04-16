@@ -8,3 +8,11 @@ class Roulette
     "#{ person } got a #{ number }"
   end
 end
+number_of = Roulette.new
+puts number_of.bob
+puts number_of.frank
+
+# 無限ループが発生する原因
+# 8行目のnumberがスコープから外れている。
+# このnumberのレシーバーが、Rouletteのインスタンスであり、method_missingが呼び出される。
+# これを繰り返す。
